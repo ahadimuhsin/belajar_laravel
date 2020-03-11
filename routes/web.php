@@ -31,8 +31,23 @@ Route::get('blog', function(){
 //Route ke Dosen_Controller dengan function index
 Route::get('dosen', 'Dosen_Controller@index');
 
-//get Pegawai
-Route::get('/pegawai/{nama}','Pegawai_Controller@index');
+/*
+Bagian Pegawai
+*/
+//route CRUD
+//halaman awal
+Route::get('/pegawai','Pegawai_Controller@index');
+//route tambah pegawai
+Route::get('/pegawai/tambah', 'Pegawai_Controller@tambah');
+//menyimpan/mengirim data hasil tambah pegawai
+Route::post('/pegawai/store', 'Pegawai_Controller@store');
+//route untuk mengambil id pegawai yang mau diedit
+Route::get('/pegawai/edit/{id}', 'Pegawai_Controller@edit');
+//route untuk menjalankan query update
+Route::post('/pegawai/update', 'Pegawai_Controller@update');
+//route untuk hapus pegawai berdasarkan id
+Route::get('/pegawai/delete/{id}', 'Pegawai_Controller@delete');
+
 Route::get('/formulir', 'Pegawai_Controller@formulir');
 //arti line di atas
 //apabila kita mengakses localhost/belajar_laravel/formulir, maka memanggil

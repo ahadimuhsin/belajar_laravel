@@ -16,6 +16,7 @@
 			<a href="/blog/kontak">KONTAK</a>
 		</nav>
 	</header>
+	<!-- Untuk menampilkan garis pada header -->
 	<hr/>
 	<br/>
 	<br/>
@@ -27,6 +28,7 @@
 	<!-- bagian konten blog -->
 	@yield('konten')
 
+	<!-- Untuk menampilkan garis pada footer -->
 
 	<br/>
 	<br/>
