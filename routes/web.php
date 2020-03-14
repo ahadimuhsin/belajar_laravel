@@ -61,3 +61,8 @@ Route::post('/formulir/proses', 'Pegawai_Controller@proses');
 Route::get('/blog', 'BlogController@home');
 Route::get('/blog/tentang', 'BlogController@tentang');
 Route::get('/blog/kontak', 'BlogController@kontak');
+
+//belajar form validasi
+Route::get('/input', 'MalasNgodingController@input');
+
+Route::post('/proses', 'MalasNgodingController@proses');
