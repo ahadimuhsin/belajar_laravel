@@ -47,6 +47,9 @@ Route::get('/pegawai/edit/{id}', 'Pegawai_Controller@edit');
 Route::post('/pegawai/update', 'Pegawai_Controller@update');
 //route untuk hapus pegawai berdasarkan id
 Route::get('/pegawai/delete/{id}', 'Pegawai_Controller@delete');
+//route untuk pencarian pegawai
+Route::get('/pegawai/cari', 'Pegawai_Controller@cari');
+
 
 Route::get('/formulir', 'Pegawai_Controller@formulir');
 //arti line di atas

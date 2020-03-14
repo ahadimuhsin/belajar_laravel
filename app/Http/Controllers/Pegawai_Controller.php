@@ -13,8 +13,10 @@ class Pegawai_Controller extends Controller
   // }
   public function index()
   {
-    //mengambil data dari tabel Pegawai
-    $pegawai = DB::table('pegawai')->get();
+    //gunakan ini untuk menampilkan semua data
+    // $pegawai = DB::table('pegawai')->get();
+    //gunakan ini untuk hanya menampilkan 10 data per halaman
+    $pegawai = DB::table('pegawai')->paginate(10);
 
     //mengirim data pegawai ke view index
     return view('index', ['pegawai' => $pegawai]);
@@ -70,6 +72,18 @@ class Pegawai_Controller extends Controller
 
     //setelah berhasil hapus, alihkan ke halaman pegawai
     return redirect ('/pegawai');
+  }
+
+//function untuk mencari pegawai berdasarkan inputan
+  public function cari (Request $request)
+  {
+    $cari = $request -> cari;
+
+    $pegawai = DB::table('pegawai')
+    ->where('pegawai_nama', 'like', "%".$cari."%")
+    ->paginate(10);
+
+    return view('index', ['pegawai' => $pegawai]);
   }
 
   public function formulir(){
