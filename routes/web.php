@@ -66,3 +66,9 @@ Route::get('/blog/kontak', 'BlogController@kontak');
 Route::get('/input', 'MalasNgodingController@input');
 
 Route::post('/proses', 'MalasNgodingController@proses');
+
+//route siswa
+Route::get('/siswa', 'SiswaController@index');
+Route::get('/siswa/tambah', 'SiswaController@tambah');
+
+Route::post('siswa/store', 'SiswaController@store');
