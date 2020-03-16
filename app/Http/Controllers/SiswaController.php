@@ -14,7 +14,7 @@ class SiswaController extends Controller
     {
       //mengambil semua data pada tabel Siswa
       //sama dengan select * from siswa
-      $siswa = Siswa::all();
+      $siswa = Siswa::All();
 
       // //mengambil data siswa pertama
       // $siswa = Siswa::first();
@@ -60,5 +60,54 @@ class SiswaController extends Controller
       //Kalau proses penambahan sudah selesai, kembali ke halaman siswa
       return redirect('/siswa');
 
+    }
+
+    //fungsi hapus yang diambil berdasarkan id
+    public function hapus($id)
+    {
+      $siswa = Siswa::find($id);
+      $siswa->delete();
+
+      return redirect('/siswa');
+    }
+
+    //fungsi menampilkan data siswa yang sudah dihapus
+    public function trash()
+    {
+      $siswa = Siswa::onlyTrashed()->get();
+      return view('siswa_trash', ['siswa'=>$siswa]);
+    }
+
+    public function restore($id)
+    {
+      $siswa = Siswa::onlyTrashed()->where('id', $id);
+      $siswa->restore();
+
+      return redirect('siswa/trash');
+    }
+
+    //mengembalikan semua data
+    public function restore_all()
+    {
+      $siswa = Siswa::onlyTrashed();
+      $siswa->restore();
+
+      return redirect('siswa/trash');
+    }
+
+    public function hapus_permanen($id)
+    {
+      $siswa = Siswa::onlyTrashed()->where('id', $id);
+      $siswa->forceDelete();
+
+      return redirect('siswa/trash');
+    }
+
+    public function hapus_permanen_semua()
+    {
+      $siswa = Siswa::onlyTrashed();
+      $siswa->forceDelete();
+      
+      return redirect('siswa/trash');
     }
 }

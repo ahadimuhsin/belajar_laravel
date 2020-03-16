@@ -72,3 +72,16 @@ Route::get('/siswa', 'SiswaController@index');
 Route::get('/siswa/tambah', 'SiswaController@tambah');
 
 Route::post('siswa/store', 'SiswaController@store');
+//soft deletes
+//Route untuk menghapus data siswa
+Route::get('siswa/hapus/{id}', 'SiswaController@hapus');
+//Route untuk cek tong Sampah
+Route::get('siswa/trash', 'SiswaController@trash');
+//Route restore
+Route::get('siswa/kembalikan/{id}', 'SiswaController@restore');
+//Route restore Semua
+Route::get('siswa/kembalikan_semua', 'SiswaController@restore_all');
+//Route hapus permanen data yang dipilih
+Route::get('/siswa/hapus_permanen/{id}', 'SiswaController@hapus_permanen');
+//Route menghapus semua data
+Route::get('/siswa/hapus_permanen_semua', 'SiswaController@hapus_permanen_semua');

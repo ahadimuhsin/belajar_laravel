@@ -14,6 +14,8 @@
                 </div>
                 <div class="card-body">
                     <a href="/siswa/tambah" class="btn btn-primary">Input Siswa Baru</a>
+                    <a href="/siswa/trash" class="btn btn-secondary">Tong Sampah</a>
+
                     <br/>
                     <br/>
                     <table class="table table-bordered table-hover table-striped">
@@ -32,6 +34,7 @@
                                 <td>
                                     <a href="/siswa/edit/{{ $s->id }}" class="btn btn-warning">Edit</a>
                                     <a href="/siswa/hapus/{{ $s->id }}" class="btn btn-danger">Hapus</a>
+                                    <!--Melihat data yang sudah dihapus-->
                                 </td>
                             </tr>
                             @endforeach
