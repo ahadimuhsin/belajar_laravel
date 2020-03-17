@@ -85,3 +85,13 @@ Route::get('siswa/kembalikan_semua', 'SiswaController@restore_all');
 Route::get('/siswa/hapus_permanen/{id}', 'SiswaController@hapus_permanen');
 //Route menghapus semua data
 Route::get('/siswa/hapus_permanen_semua', 'SiswaController@hapus_permanen_semua');
+
+
+//Tutorial Laravel 23 - One To One
+Route::get('/pengguna', 'PenggunaController@index');
+
+//Tutorial Laravel 24 - One To Many
+Route::get('/article', 'Article_Controller@index');
+
+//Tutorial 25 - Many To Many
+Route::get('/anggota', 'Anggota_Hadiah_Controller@index');
