@@ -107,7 +107,32 @@ class SiswaController extends Controller
     {
       $siswa = Siswa::onlyTrashed();
       $siswa->forceDelete();
-      
+
       return redirect('siswa/trash');
+    }
+
+
+    public function edit($id)
+    {
+      $siswa = Siswa::find($id);
+      return view('siswa_edit', ['siswa' => $siswa]);
+
+    }
+
+    public function update ($id, Request $request)
+    {
+      //form validasi untuk update siswa
+      $this->validate($request, [
+        'nama' => 'required',
+        'alamat' => 'required'
+      ]);
+
+      //mengambil data pada form berdasarkan id
+      $siswa = Siswa::find($id);
+      $siswa->nama = $request->nama;
+      $siswa->alamat = $request->alamat;
+      $siswa->save();
+      //kembali ke halaman siswa
+      return redirect('/siswa');
     }
 }

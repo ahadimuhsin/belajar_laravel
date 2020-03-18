@@ -85,7 +85,9 @@ Route::get('siswa/kembalikan_semua', 'SiswaController@restore_all');
 Route::get('/siswa/hapus_permanen/{id}', 'SiswaController@hapus_permanen');
 //Route menghapus semua data
 Route::get('/siswa/hapus_permanen_semua', 'SiswaController@hapus_permanen_semua');
-
+//fitur edit dan update
+Route::get('siswa/edit/{id}', 'SiswaController@edit');
+Route::put('siswa/update/{id}', 'SiswaController@update');
 
 //Tutorial Laravel 23 - One To One
 Route::get('/pengguna', 'PenggunaController@index');
