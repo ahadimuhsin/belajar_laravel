@@ -97,3 +97,9 @@ Route::get('/article', 'Article_Controller@index');
 
 //Tutorial 25 - Many To Many
 Route::get('/anggota', 'Anggota_Hadiah_Controller@index');
+
+//Route untuk encrypt
+Route::get('/enkripsi', 'EnkripDekrip@enkripsi');
+
+Route::get('/data', 'EnkripDekrip@data');
+Route::get('/data/{data_rahasia}', 'EnkripDekrip@data_proses');
