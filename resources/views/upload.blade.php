@@ -50,9 +50,11 @@
 					<tbody>
 						@foreach($gambar as $g)
 						<tr>
+							<!-- sesuaikan dengan nama folder tempat menyimpan file dan nama file disimpan dalam database -->
 							<td><img width="150px" src="{{ url('/data_file/'.$g->file) }}"></td>
 							<td>{{$g->keterangan}}</td>
-							<td><a class="btn btn-danger" href="/upload/hapus/{{ $g->id }}">HAPUS</a></td>
+							<!-- sesuaikan id dengan nama id pada database -->
+							<td><a class="btn btn-danger" href="/upload/hapus/{{ $g->id_gambar }}">HAPUS</a></td>
 						</tr>
 						@endforeach
 					</tbody>

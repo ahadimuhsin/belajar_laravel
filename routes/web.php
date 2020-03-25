@@ -107,3 +107,5 @@ Route::get('/data/{data_rahasia}', 'EnkripDekrip@data_proses');
 //Route untuk upload
 Route::get('/upload', 'UploadController@upload');
 Route::post('/upload/proses', 'UploadController@proses_upload');
+//untuk delete file
+Route::get('/upload/hapus/{id}', 'UploadController@hapus');

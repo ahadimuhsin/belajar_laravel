@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use File;
+
 //import model Gambar
 use App\Gambar;
 class UploadController extends Controller
@@ -43,4 +45,18 @@ class UploadController extends Controller
       return redirect()->back();
 
     }
+
+    public function hapus($id)
+    {
+        //untuk hapus file di folder
+        //ambil gambar yang ingin dihapus via id
+        $gambar = Gambar::where('id_gambar', $id)->first();
+        //tentukan file yang mau dihapus ada di folder mana
+        File::delete('data_file/' .$gambar->file);
+
+        //untuk hapus data di database
+        Gambar::where('id_gambar', $id)->delete();
+
+        return redirect()->back();
+      }
 }
