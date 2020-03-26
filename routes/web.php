@@ -109,3 +109,14 @@ Route::get('/upload', 'UploadController@upload');
 Route::post('/upload/proses', 'UploadController@proses_upload');
 //untuk delete file
 Route::get('/upload/hapus/{id}', 'UploadController@hapus');
+
+//Route untuk session
+Route::get('/session/tampil', 'SessionController@showSession');
+Route::get('/session/buat', 'SessionController@createSession');
+Route::get('/session/hapus', 'SessionController@deleteSession');
+
+//ROute untuk flash message
+Route::get('/pesan', 'FlashController@index');
+Route::get('/pesan/sukses', 'FlashController@sukses');
+Route::get('/pesan/peringatan', 'FlashController@peringatan');
+Route::get('/pesan/gagal', 'FlashController@gagal');
