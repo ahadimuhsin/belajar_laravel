@@ -49,7 +49,8 @@ Route::post('/pegawai/update', 'Pegawai_Controller@update');
 Route::get('/pegawai/delete/{id}', 'Pegawai_Controller@delete');
 //route untuk pencarian pegawai
 Route::get('/pegawai/cari', 'Pegawai_Controller@cari');
-
+//rute untuk cetak pdf
+Route::get('/pegawai/cetak_pdf', 'Pegawai_Controller@cetak_pdf');
 
 Route::get('/formulir', 'Pegawai_Controller@formulir');
 //arti line di atas
@@ -88,7 +89,8 @@ Route::get('/siswa/hapus_permanen_semua', 'SiswaController@hapus_permanen_semua'
 //fitur edit dan update
 Route::get('siswa/edit/{id}', 'SiswaController@edit');
 Route::put('siswa/update/{id}', 'SiswaController@update');
-
+//download pdf
+Route::get('siswa/cetak_pdf', 'SiswaController@cetak_pdf');
 //Tutorial Laravel 23 - One To One
 Route::get('/pengguna', 'PenggunaController@index');
 
@@ -120,3 +122,6 @@ Route::get('/pesan', 'FlashController@index');
 Route::get('/pesan/sukses', 'FlashController@sukses');
 Route::get('/pesan/peringatan', 'FlashController@peringatan');
 Route::get('/pesan/gagal', 'FlashController@gagal');
+
+//Rute kirim email
+Route::get('/kirimemail', 'MailController@index');

@@ -32,17 +32,22 @@
 		<input class="form-control" type="text" name="cari" placeholder="Cari Pegawai" value="{{ old('cari')}}">
 		<input class="btn btn-primary ml-3" type="submit" value="CARI">
 	</form>
-
+	<div>
+	<a href="/pegawai/cetak_pdf" class="btn btn-primary" target="_blank">CETAK PDF</a>
+</div>
 	<table class="table table-bordered" border="2">
 		<tr>
+			<th>Nomor</th>
 			<th>Nama</th>
 			<th>Jabatan</th>
 			<th>Umur</th>
 			<th>Alamat</th>
 			<th>Opsi</th>
 		</tr>
+		@php $i = 1 @endphp
 		@foreach($pegawai as $p)
 		<tr>
+			<td>{{ $i++ }}</td>
 			<td>{{ $p->pegawai_nama }}</td>
 			<td>{{ $p->pegawai_jabatan }}</td>
 			<td>{{ $p->pegawai_umur }}</td>

@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
+use App\Pegawai;
+
+use PDF;
+
 //nama class harus sama dengan nama file dan harus berkekstensi Contrroller
 class Pegawai_Controller extends Controller
 {
@@ -16,7 +20,7 @@ class Pegawai_Controller extends Controller
     //gunakan ini untuk menampilkan semua data
     // $pegawai = DB::table('pegawai')->get();
     //gunakan ini untuk hanya menampilkan 10 data per halaman
-    $pegawai = DB::table('pegawai')->paginate(10);
+    $pegawai = DB::table('pegawai')->paginate(100);
 
     //mengirim data pegawai ke view index
     return view('index', ['pegawai' => $pegawai]);
@@ -97,6 +101,17 @@ class Pegawai_Controller extends Controller
     $alamat = $request->input('alamat');
 
     return "Nama: ".$nama."\n Alamat: ".$alamat;
+  }
+
+  //method untuk mencetak pdf
+  public function cetak_pdf()
+  {
+    //mengambil seluruh data dari model pegawai
+    $pegawai = Pegawai::all();
+    //tampilan pdf yang akan dicetak
+    $pdf = PDF::loadview('pegawai_pdf', ['pegawai'=>$pegawai]);
+    //mengembalikan file pdf yang aidownload
+    return $pdf->download('laporan-pegawai.pdf');
   }
 
 } ?>

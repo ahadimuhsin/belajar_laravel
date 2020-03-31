@@ -13,9 +13,8 @@
                     CRUD Data Siswa - <a href="https://www.malasngoding.com/category/laravel" target="_blank">www.malasngoding.com</a>
                 </div>
                 <div class="card-body">
-                    <a href="/siswa/tambah" class="btn btn-primary">Input Siswa Baru</a>
-                    <a href="/siswa/trash" class="btn btn-secondary">Tong Sampah</a>
-                    <a href='/siswa/cetak_pdf' class="btn btn-warning">Download PDF</a>
+                    <!-- <a href="/siswa/cetak" class="btn btn-primary">Input Siswa Baru</a>
+                    <a href="/siswa/trash" class="btn btn-secondary">Tong Sampah</a> -->
 
                     <br/>
                     <br/>
@@ -24,7 +23,7 @@
                             <tr>
                                 <th>Nama</th>
                                 <th>Alamat</th>
-                                <th>OPSI</th>
+                                <!-- <th>OPSI</th> -->
                             </tr>
                         </thead>
                         <tbody>
@@ -32,11 +31,11 @@
                             <tr>
                                 <td>{{ $s->nama }}</td>
                                 <td>{{ $s->alamat }}</td>
-                                <td>
+                                <!-- <td>
                                     <a href="/siswa/edit/{{ $s->id }}" class="btn btn-warning">Edit</a>
                                     <a href="/siswa/hapus/{{ $s->id }}" class="btn btn-danger">Hapus</a>
                                     <!--Melihat data yang sudah dihapus-->
-                                </td>
+                                <!-- </td> --> 
                             </tr>
                             @endforeach
                         </tbody>

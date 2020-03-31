@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 //memanggil model pegawai
 use App\Siswa;
 
+use PDF;
+
 class SiswaController extends Controller
 {
     //
@@ -134,5 +136,14 @@ class SiswaController extends Controller
       $siswa->save();
       //kembali ke halaman siswa
       return redirect('/siswa');
+    }
+
+    public function cetak_pdf()
+    {
+      $siswa = Siswa::all();
+      //tampilan pdf yang akan dicetak
+      $pdf = PDF::loadview('siswa_pdf', ['siswa'=>$siswa]);
+      //mengembalikan file pdf yang aidownload
+      return $pdf->download('laporan-siswa.pdf');
     }
 }
