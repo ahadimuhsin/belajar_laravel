@@ -1,12 +1,12 @@
 <?php
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
+use PDF;
 
 use App\Pegawai;
 
-use PDF;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 //nama class harus sama dengan nama file dan harus berkekstensi Contrroller
 class Pegawai_Controller extends Controller
@@ -21,7 +21,9 @@ class Pegawai_Controller extends Controller
     // $pegawai = DB::table('pegawai')->get();
     //gunakan ini untuk hanya menampilkan 10 data per halaman
     $pegawai = DB::table('pegawai')->paginate(100);
-
+    // drakify('error');
+    // smilify('success', 'You are successfully reconnected');
+    emotify('success', 'You are awesome, your data was successfully created');
     //mengirim data pegawai ke view index
     return view('index', ['pegawai' => $pegawai]);
   }

@@ -1,5 +1,6 @@
 <?php
 
+use App\Pegawai;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,7 +16,9 @@ use Illuminate\Support\Facades\Route;
 
 //untuk routing ke halaman welcome
 Route::get('/', function () {
-    return view('welcome');
+    $data = Pegawai::limit(10)->get();
+    // dd($data);
+    return view('welcome', compact('data'));
 });
 
 //buat Route baru

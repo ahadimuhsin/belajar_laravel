@@ -8,7 +8,7 @@
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
-
+        @notifyCss
         <!-- Styles -->
         <style>
             html, body {
@@ -64,6 +64,7 @@
         </style>
     </head>
     <body>
+        <x:notify-messages />
         <div class="flex-center position-ref full-height">
             @if (Route::has('login'))
                 <div class="top-right links">
@@ -83,6 +84,7 @@
                 <div class="title m-b-md">
                     Malas Ngoding
                 </div>
+                <x-latest-posts :latestPosts="$data"></x-latest-posts>
 
                 <div class="links">
                     <a href="https://laravel.com/docs">Docs</a>
@@ -96,5 +98,6 @@
                 </div>
             </div>
         </div>
+        @notifyJs
     </body>
 </html>
