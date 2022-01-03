@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-
-//memanggil model pegawai
+use PDF;
 use App\Siswa;
 
-use PDF;
+//memanggil model pegawai
+use App\Exports\SiswaExport;
+use App\Imports\SiswaImport;
+use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 
 class SiswaController extends Controller
 {
@@ -145,5 +147,26 @@ class SiswaController extends Controller
       $pdf = PDF::loadview('siswa_pdf', ['siswa'=>$siswa]);
       //mengembalikan file pdf yang aidownload
       return $pdf->download('laporan-siswa.pdf');
+    }
+
+    public function export_excel()
+    {
+        return Excel::download(new SiswaExport, 'siswa.xlsx');
+    }
+
+    public function import_excel(Request $request)
+    {
+        $this->validate($request, [
+            'file' => 'required|mimes:csv,xls,xlsx'
+        ],
+    [
+        'file.required' => 'File harus dilampirkan',
+        'file.mimes' => 'File yang dilampirkan harus dalam format Excel']);
+
+        Excel::import(new SiswaImport, $request->file('file'));
+
+        notify()->success('Import Sukses!');
+
+        return redirect()->back();
     }
 }

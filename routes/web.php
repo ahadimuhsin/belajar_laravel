@@ -74,6 +74,8 @@ Route::post('/proses', 'MalasNgodingController@proses');
 //route siswa
 Route::get('/siswa', 'SiswaController@index');
 Route::get('/siswa/tambah', 'SiswaController@tambah');
+Route::get('/siswa/export_excel', 'SiswaController@export_excel');
+Route::post('/siswa/import_excel', 'SiswaController@import_excel');
 
 Route::post('siswa/store', 'SiswaController@store');
 //soft deletes
